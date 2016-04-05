@@ -1,0 +1,14 @@
+h1 {{title}}
+
+ul.heroes
+    li(*ngFor='#hero of heroes', [class.selected]='hero === selectedHero', (click)='onSelect(hero)')
+        span.badge {{hero.id}}
+        |  {{hero.name}}
+    div(*ngIf='selectedHero')
+        h2 {{selectedHero.name}} details!
+        div
+            label id:
+            | {{selectedHero.id}}
+        div
+            label name:
+            input([(ngModel)]='selectedHero.name', placeholder='name')
